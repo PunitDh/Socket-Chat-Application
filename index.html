@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant Message</title>
+  <script defer src="http://localhost:7000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 90vh;
+      width: 90%;
+      max-width: 1200px;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      color: darkred;
+    }
+
+    #message-container {
+      border: 1px solid darkred;
+      flex-grow: 1;
+      overflow-y: auto;
+      width: 90%;
+      height: 50%;
+      border-radius: 1%;
+    }
+
+    #message-container div {
+      /* background-color: #ccc; */
+      padding: 5px;
+    }
+
+    #message-container div:nth-child(2n) {
+      /* background-color: #eee; */
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    form div {
+      margin: 5px;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      font-size: larger;
+      justify-content: space-between;
+    }
+
+    form div label {
+      width: 0%;
+      color: darkred;
+    }
+
+    form div button {
+      width: 10%;
+      font-size: larger;
+      cursor: pointer;
+      padding: 0.25rem;
+      border: 1px solid red;
+      border-radius: 5px;
+      color: white;
+      background-color: darkred;
+      line-height: 1.5;
+    }
+
+    form div button:hover {
+      background-color: red;
+    }
+
+    form div button:active {
+      background-color: lightcoral;
+    }
+
+    form div div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 1rem;
+      width: 100%;
+    }
+
+    form div div input {
+      width: 90%;
+      font-size: larger;
+      padding: 0.25rem;
+      border: 1px solid red;
+      border-radius: 5px;
+    }
+
+    .receiver {
+      text-align: left;
+      background-color: lightgray;
+    }
+
+    .sender {
+      text-align: right;
+      background-color: lawngreen;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Instant Message</h1>
+  <div id="message-container"></div>
+  <form id="form">
+    <div class="input-container">
+      <label for="message-input">Message</label>
+      <div>
+        <input type="text" id="message-input" name="message" autocomplete="off">
+      </div>
+      <button type="submit" id="send-button">Send</button>
+    </div>
+    <div class="input-container">
+      <label for="room-input">Room</label>
+      <div>
+        <input type="text" id="room-input" name="room" autocomplete="off">
+      </div>
+      <button type="button" id="room-button">Join</button>
+    </div>
+  </form>
+</body>
+
+</html>
